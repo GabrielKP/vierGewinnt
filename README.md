@@ -11,3 +11,6 @@ private Int aiPlayer(Spielfeld field, Point lastMoveCoordinate){
 
 Spielfeld:
 int[7][7] wobei int[y][x] x nach rechts und y nach unten.
+
+
+Marc war hier heheheh XDDD
