@@ -4,7 +4,7 @@ Einfaches Vier Gewinnt Spiel mit eigener AI
 Idee ist Simpel. C++
 Die AI ist eine folgende Funktion:
 
-private Int aiPlayer(Spielfeld field, Int lastMove){
+private Int aiPlayer(Spielfeld field, Point lastMoveCoordinate){
   ...
   return nextMove;
 }
