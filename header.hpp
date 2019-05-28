@@ -38,10 +38,16 @@ void printSpielfeld(spielfeld sp);
         wechselt sp.player*/
 bool setStein(spielfeld *spP, int spalte);
 
+/*  
+    checks for winner 
+*/
+bool checkGewinner(spielfeld sp);
+
 /*  Preconditions: correct spielfeld sp
     Postconditions:
     returns a number between 0 and 6
 */
 int aiPlayer(spielfeld sp);
+
 
 #endif  
