@@ -17,7 +17,7 @@ spielfeld createSpielfeld(){
     return sp;
 }
 
-// Printed das Spielfeld
+// Prints spielfeld sp with one line extra above
 void printSpielfeld(spielfeld sp){
     std::cout << "\n";
     for(int y = 0; y < 7;++y) {
@@ -26,6 +26,11 @@ void printSpielfeld(spielfeld sp){
         }
         std::cout << "\n";
     }
+}
+
+//Prints which players turn it is
+void printPlayersTurn(int player){
+    printf("Next turn player %d\n", player);
 }
 
 /*Setzt Stein in Spalte "spalte", updated sp.lastMove, und wechselt sp.player
@@ -39,14 +44,27 @@ bool setStein(spielfeld *spP, int spalte){
         (*spP).matrix[(*spP).setSteine[spalte]][spalte] = (*spP).player + 1;
         (*spP).player = ((*spP).player + 1)%2;
         (*spP).lastMove = spalte;
+        //setSteine verringern
         return true;
     }
 }
 
+void gameRoutine(spielfeld *spP){
+    do {
+        // 1. Print Game field
+        printSpielfeld(*spP);
+        // 2. Print which players turn it is
+        printPlayersTurn((*spP).player);
+        // 3. Set new position
+        setStein(spP, 0);
+        // 4. Check for Winner
+    } while(/*!checkGewinner(*spP)*/1);
+}
+
 int main()
 {
-    spielfeld sp = createSpielfeld();
-    printSpielfeld(sp);
-    setStein(&sp, 1);
-    printSpielfeld(sp);
+    // Create spielfeld
+    spielfeld sp = createSpielfeld();  
+    // Start Game Routine
+    gameRoutine(&sp);
 }

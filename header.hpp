@@ -10,9 +10,15 @@
     0 <= lastMove <= 6, except at the start lastMove = -1
     player = 0,1
     f.a. i, 0<= setSteine[i] <= 6
-    */
+
+    Example:
+    [0][0] [0][1] [0][2] [0][3] [0][4] [0][5] [0][6]
+    [1][0]
+    .
+    [6][0] .      .      .       .     .      [6][6]
+*/
 struct spielfeld{
-    int matrix [7][7];  //matrix [y][x] | x <- Zeile | y <- Spalte
+    int matrix [7][7];  //matrix [y][x] | y <- Zeile | x <- Spalte
     int lastMove;       // 
     int player;         //
     int setSteine [7];  //Speichert oberste Steinposition in jeder Spalte
@@ -28,6 +34,9 @@ spielfeld createSpielfeld();
 
 // Prints spielefeld sp in console.
 void printSpielfeld(spielfeld sp);
+
+//Prints which players turn it is
+void printPlayersTurn(int player);
 
 /*  Preconditions: correct spielfeld sp
     Postconditions:
@@ -49,5 +58,9 @@ bool checkGewinner(spielfeld sp);
 */
 int aiPlayer(spielfeld sp);
 
+/* 
+    Main routine of the game
+*/
+void gameRoutine(spielfeld *spP);
 
 #endif  
