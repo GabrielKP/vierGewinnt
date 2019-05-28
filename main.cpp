@@ -1,13 +1,7 @@
 
 #include <iostream>
 #include <stdio.h>
-
-struct spielfeld{
-    int matrix [7][7];  //matrix [y][x] | x <- Zeile | y <- Spalte
-    int lastMove;       // 
-    int player;         //
-    int setSteine [7];  //Speichert oberste Steinposition in jeder Spalte
-};
+#include "header.hpp"
 
 // Kreiert das Spielfeld, initialisiert player und setSteine, lässt lastMove auf -1
 spielfeld createSpielfeld(){
@@ -34,7 +28,9 @@ void printSpielfeld(spielfeld sp){
     }
 }
 
-//Setzt Stein in Spalte "spalte", updated sp.lastMove, und wechselt sp.player
+/*Setzt Stein in Spalte "spalte", updated sp.lastMove, und wechselt sp.player
+gibt false: wenn kein Stein mehr reinpasst
+gibt true: wenn Stein erfolgreich gesetzt wurde*/
 bool setStein(spielfeld *spP, int spalte){ 
     if((*spP).setSteine[spalte] == 0){
         return false;
